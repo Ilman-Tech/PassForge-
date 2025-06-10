@@ -1,0 +1,231 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Lato", sans-serif;
+}
+
+
+
+body {
+    width: 100%;
+    height: 100vh;
+}
+
+.header {
+    width: 90%;
+    height: 20%;
+    background-color: red;
+    border-radius: 20px;
+    position: relative;
+    left: 5%;
+    top: 13px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 5px 10px #000;
+}
+
+.header_container {
+    width: 30%;
+    height: 100%;
+    background-color: green;
+    border-radius: 50%;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header_container h1 {
+    color: white;
+    font-size: 2.5rem;
+    text-align: center;
+    font-family: "Cinzel", serif;
+}
+
+.main {
+    width: 90%;
+    height: 70%;
+    background-color: #EEEFE0;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -65%);
+    border-radius: 20px;
+    box-shadow: 0px 5px 10px #000;
+}
+
+.to-main {
+    width: 90%;
+    height: 20%;
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-bottom: 1px solid #000;
+    border-top: 1px solid #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+form {
+    width: 90%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    top: -80px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+form div {
+    width: 15%;
+    height: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 2rem 0 2rem;
+    gap: .5rem;
+}
+
+form div h4 {
+    font-size: 1.2rem;
+    color: #000;
+}
+
+form div input#length {
+    width: 1rem;
+    height: 1rem;
+}
+
+form div input#length {
+    width: 3rem;
+    height: 1.5rem;
+}
+
+.button {
+    position: absolute;
+    bottom: 90px;
+}
+
+.button .generate-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    padding: 1.2rem 1.8rem;
+    background-color: #A4CCD9;
+    font-weight: bold;
+    border: 1px solid #000;
+    border-radius: 30px;
+    transition: all 0.3s ease-in-out;
+}
+
+.button .generate-button:hover {
+    background: #8DBCC7;
+    padding: 1.5rem 2rem;
+}
+
+.show-pass {
+    width: 95%;
+    height: 30%;
+    background-color: #8DBCC7;
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 30px;
+    box-shadow: 0 0 10px #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ja-pass {
+    width: 90%;
+    height: 60%;
+    background: white;
+    border-radius: 5px;
+    position: absolute;
+    left: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.show-pass .ja-pass p {
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+
+.sc-button {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    right: 50px;
+    gap: .5rem;
+}
+
+.error {
+    color: red;
+}
+
+.success {
+    color: green;
+}
+
+.notification p {
+    font-weight: bold;
+    color: #fff;
+}
+
+.notification {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: mediumseagreen;
+    box-shadow: 0 0 10px #000;
+    width: 20%;
+    height: 20%;
+    border-radius: 10px;
+    border: 2px solid #fff;
+    top: 40px;
+    left: -350px;
+    transition: all ease-in-out .5s;
+
+}
+
+
+.notification.show {
+    transform: translateX(450px);
+}
+
+.notification.hidden {
+    transform: translateX(-450px);
+}
+
+button {
+    font-size: 1rem;
+    color: #fafafa;
+    text-transform: uppercase;
+    padding: 5px 10px;
+    border-radius: 10px;
+    border: 2px solid #fafafa;
+    background: #252525;
+    box-shadow: 3px 3px #282828;
+    cursor: pointer;
+    position: relative;
+    left: 20px;
+}
+
+button:active {
+    box-shadow: none;
+    transform: translate(3px, 3px);
+}

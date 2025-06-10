@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Libre+Bodoni:ital,wght@0,400..700;1,400..700&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Vazirmatn:wght@100..900&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+        rel="stylesheet">
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</head>
+
+<body>
+
+    <header class="header">
+        <div class="header_container">
+            <h1>
+                PassForge
+            </h1>
+        </div>
+    </header>
+
+    <div class="main">
+        <div class="to-main">
+            <h2>
+                Customize your password
+            </h2>
+        </div>
+
+        <form action="{{ url_for('home') }}" method="post">
+            <div>
+                <h4>Include Uppercase</h4>
+                <input type="checkbox" name="uppercase" id="uppercase" checked>
+            </div>
+
+            <div>
+                <h4>Include Lower</h4>
+                <input type="checkbox" name="lowercase" id="lowercase" checked>
+            </div>
+
+            <div>
+                <h4>Include Numbers</h4>
+                <input type="checkbox" name="numbers" id="numbers" checked>
+            </div>
+
+            <div>
+                <h4>Include Symbols</h4>
+                <input type="checkbox" name="symbols" id="symbols" checked>
+            </div>
+
+            <div>
+                <h4>Length</h4>
+                <input type="number" name="length" id="length" value="16" min="12" max="32">
+            </div>
+
+            <div class="button">
+                <input type="submit" value="Generate Password" class="generate-button">
+            </div>
+        </form>
+
+        <div class="show-pass">
+            <div class="ja-pass">
+                {% if send_msg %}
+                <p
+                    class="{% if send_msg.startswith('Invalid') or send_msg.startswith('Please') %} error {% else %} success {% endif %}">
+                    {{send_msg}}
+                </p>
+                {% endif %}
+            </div>
+            <div class="sc-button">
+                <button onclick="copyPassword('{{ send_msg }}')">Copy</button>
+                <button>Save</button>
+            </div>
+            
+        </div>
+
+    </div>
+
+    <div id="notification" class="notification hidden">
+        <p>Password is Copy ClipBord!</p>
+    </div>
+
+
+</body>
+
+</html>
