@@ -39,7 +39,7 @@
             </h2>
         </div>
 
-        <form action="{{ url_for('home') }}" method="post">
+        <form action="{{ url_for('home') }}" method="post" class="form">
             <div>
                 <h4>Include Uppercase</h4>
                 <input type="checkbox" name="uppercase" id="uppercase" checked>
@@ -65,7 +65,7 @@
                 <input type="number" name="length" id="length" value="16" min="12" max="32">
             </div>
 
-            <div class="button">
+            <div class="button cursor">
                 <input type="submit" value="Generate Password" class="generate-button">
             </div>
         </form>
@@ -81,17 +81,40 @@
             </div>
             <div class="sc-button">
                 <button onclick="copyPassword('{{ send_msg }}')">Copy</button>
-                <button>Save</button>
+                <button onclick="showForm()">Save</button>
             </div>
-            
+
         </div>
 
     </div>
+
+    <div class="main2"></div>
 
     <div id="notification" class="notification hidden">
         <p>Password is Copy ClipBord!</p>
     </div>
 
+    <div id="formSection" class="db_save">
+        <h4 class="hz4">Saved password</h4>
+        <form action="{{ url_for('save') }}" method="post" class="form2">
+
+            <div class="title">
+                <label>Title</label><br>
+                <input type="text" maxlength="32" placeholder="Enter your password title..." name="title" required><br>
+            </div>
+
+            <div class="password">
+                <label> password </label><br>
+                <p>{{ send_msg }}</p>
+            </div>
+        </form>
+    </div>
+
+    <!-- <script>
+        function showForm() {
+            document.getElementById('formSection').style.display = 'block';
+        }
+    </script> -->
 
 </body>
 

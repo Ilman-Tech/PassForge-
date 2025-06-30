@@ -1,10 +1,26 @@
 # Project name: PassForge
 
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, url_for
+import sqlite3
 import string
 import secrets
+import datetime
 
-app = Flask(__name__, template_folder='temps')  # اصلاح نام پوشه به 'templates' (استاندارد)
+app = Flask(__name__, template_folder='temps') 
+
+
+with sqlite3.connect('savelist.db') as conn:
+    cursor = conn.cursor()
+    create_insert_db = """
+        CREATE TABLE IF NOT EXISTS passwords (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        title TEXT NOT NULL CHECK(length(title) <= 32),
+        password TEXT NOT NULL,
+        created_at TEXT NOT NULL
+        );
+    """
+    conn.execute(create_insert_db)
+    conn.commit()
 
 @app.route('/')
 def home():
@@ -44,6 +60,10 @@ def generate_password():
     password = "".join(secrets.choice(characters) for _ in range(length))
 
     return render_template('index.html', send_msg=password)
+
+@app.route('/save')
+def save():
+    pass
 
 if __name__ == '__main__':
     app.run(debug=True)
