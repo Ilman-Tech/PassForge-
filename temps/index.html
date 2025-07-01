@@ -88,14 +88,20 @@
 
     </div>
 
-    <div class="main2"></div>
+    <div class="main2">
+        <div class="titlepas">
+            <p>Your Password</p>
+        </div>
+    </div>
 
     <div id="notification" class="notification hidden">
         <p>Password is Copy ClipBord!</p>
     </div>
 
     <div id="formSection" class="db_save">
-        <h4 class="hz4">Saved password</h4>
+        <div class="h4">
+            <h4 class="hz4">Saved password</h4>
+        </div>
         <form action="{{ url_for('save') }}" method="post" class="form2">
 
             <div class="title">
@@ -104,8 +110,14 @@
             </div>
 
             <div class="password">
-                <label> password </label><br>
-                <p>{{ send_msg }}</p>
+                <label> Password </label><br>
+                <div class="labelpassword">
+                    <p>{{ send_msg }}</p>
+                </div>
+            </div>
+
+            <div class="submitbuttom">
+                <input type="submit" value="Save">
             </div>
         </form>
     </div>
