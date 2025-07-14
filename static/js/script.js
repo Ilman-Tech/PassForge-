@@ -11,3 +11,15 @@ function copyPassword(password) {
         alert('خطا در کپی کردن رمز!');
     });
 }
+
+function showForm() {
+  const formSection = document.getElementById("formSection");
+  formSection.classList.remove("hidden");
+  formSection.classList.add("visible");
+}
+
+function hideForm() {
+  const formSection = document.getElementById("formSection");
+  formSection.classList.remove("visible");
+  formSection.classList.add("hidden");
+}

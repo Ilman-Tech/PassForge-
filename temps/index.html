@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>PassForge</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <link rel="stylesheet" href="../static/css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -62,7 +62,7 @@
 
             <div>
                 <h4>Length</h4>
-                <input type="number" name="length" id="length" value="16" min="12" max="32">
+                <input type="number" name="length" id="length" value="16" min="12" max="62">
             </div>
 
             <div class="button cursor">
@@ -80,8 +80,8 @@
                 {% endif %}
             </div>
             <div class="sc-button">
-                <button onclick="copyPassword('{{ send_msg }}')">Copy</button>
-                <button onclick="showForm()">Save</button>
+                <button onclick="copyPassword('{{ send_msg }}')" class="BTN">Copy</button>
+                <button onclick="showForm()" class="BTN">Save</button>
             </div>
 
         </div>
@@ -98,7 +98,7 @@
         <p>Password is Copy ClipBord!</p>
     </div>
 
-    <div id="formSection" class="db_save">
+    <div id="formSection" class="db_save hidden">
         <div class="h4">
             <h4 class="hz4">Saved password</h4>
         </div>
@@ -118,6 +118,10 @@
 
             <div class="submitbuttom">
                 <input type="submit" value="Save">
+            </div>
+
+            <div class="CancelButton">
+                <button type="button" onclick="hideForm()">Cancel</button>
             </div>
         </form>
     </div>

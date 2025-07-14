@@ -167,6 +167,22 @@ body {
 .show-pass .ja-pass p {
     font-size: 1.4rem;
     font-weight: bold;
+    white-space: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    max-width: 100%;
+    display: block;
+    scrollbar-width: thin;
+    scrollbar-color: #222 #999;
+}
+
+.show-pass .ja-pass p::-webkit-scrollbar {
+    height: 2px;
+}
+
+.show-pass .ja-pass p::-webkit-scrollbar-thumb {
+    background: green;
+    border-radius: 30px;
 }
 
 .sc-button {
@@ -218,7 +234,7 @@ body {
     transform: translateX(-450px);
 }
 
-button {
+.BTN {
     font-size: 0.7rem;
     color: #fafafa;
     text-transform: uppercase;
@@ -231,7 +247,7 @@ button {
     left: 20px;
 }
 
-button:active {
+.BTN:active {
     box-shadow: none;
     transform: translate(3px, 3px);
 }
@@ -248,8 +264,8 @@ button:active {
 }
 
 .db_save {
-    background-color: #f9f9f9;
-    width: 25%;
+    background-color: #080808;
+    width: 22%;
     height: 60%;
     z-index: 1000;
     box-shadow: 3px 3px 6px #000;
@@ -260,6 +276,24 @@ button:active {
     left: 50%;
     transform: translate(-50%, -50%);
     position: relative;
+    color: white;
+    transition: all ease-in-out .5s;
+}
+
+.hidden {
+    opacity: 0;
+    pointer-events: none;
+    /*روی اون کلیک رو تماعل انجام نمیشه */
+    height: 0;
+    overflow: hidden;
+    /* اگر محتوای اضافی ازش بزنه بیرون رو حذف میکنه */
+    /* transition: all .5s ease; */
+}
+
+.visible {
+    opacity: 1;
+    pointer-events: auto;
+    height: 60%;
 }
 
 .titlepas {
@@ -297,7 +331,7 @@ button:active {
 }
 
 .title input:focus {
-    width: 285px;
+    box-shadow: 1px 1px 15px #A4DD00;
 }
 
 .password {
@@ -334,6 +368,26 @@ button:active {
     border: .1px solid #000;
     border-radius: 5px;
     top: -115px;
+    color: #000;
+}
+
+.labelpassword p {
+    white-space: nowrap;
+    overflow-y: hidden;
+    overflow-x: auto;
+    max-width: 100%;
+    display: block;
+    scrollbar-width: thin;
+    scrollbar-color: #222 #999;
+}
+
+.labelpassword p::-webkit-scrollbar {
+    height: 2px;
+}
+
+.labelpassword p::-webkit-scrollbar-thumb {
+    background-color: green;
+    border-radius: 10px;
 }
 
 .submitbuttom {
@@ -348,13 +402,39 @@ button:active {
     cursor: pointer;
     font-weight: bold;
     font-size: 1rem;
-    box-shadow: 3px 3px 3px #000;
+    box-shadow: 3px 3px 3px #a6df19;
     background-color: #A4DD00;
     color: #fff;
     border-radius: 3px;
+    border: none;
 }
 
 .submitbuttom input:active {
+    box-shadow: 1px 1px 1px #000;
+    transform: translate(3px, 3px);
+}
+
+.CancelButton {
+    position: absolute;
+    left: 40px;
+    bottom: 30px;
+}
+
+.CancelButton button {
+    width: 100px;
+    height: 50px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1rem;
+    box-shadow: 3px 3px 3px #a6df19;
+    background-color: #A4DD00;
+    color: #fff;
+    border-radius: 3px;
+    border: none;
+
+}
+
+.CancelButton button:active {
     box-shadow: 1px 1px 1px #000;
     transform: translate(3px, 3px);
 }

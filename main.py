@@ -4,10 +4,12 @@ from flask import Flask, render_template, request, url_for
 import sqlite3
 import string
 import secrets
-import datetime
+from datetime import datetime
 
 app = Flask(__name__, template_folder='temps') 
 
+
+password_list = []
 
 with sqlite3.connect('savelist.db') as conn:
     cursor = conn.cursor()
@@ -58,12 +60,33 @@ def generate_password():
 
     # تولید رمز
     password = "".join(secrets.choice(characters) for _ in range(length))
+    
+    if len(password_list) == 0:
+        password_list.append(password)
+    else:
+        password_list[0] = password
 
     return render_template('index.html', send_msg=password)
 
-@app.route('/save')
+@app.route('/save', methods=['POST'])
 def save():
-    pass
+    title = request.form['title']
+    password = password_list[0]
+    created_at = datetime.now().strftime('%Y-%m-%d')
+    
+    if len(password_list[0]) > 1:
+        with sqlite3.connect('savelist.db') as conn:
+            cursor = conn.cursor()
+            cursor.execute("""
+            INSERT INTO passwords(title, password, created_at)
+            VALUES (?, ?, ?)               
+            """,  (title, password, created_at))
+            conn.commit()
+    
+        return 'ok'
+    else:
+        return 'null men :,('
+    
 
 if __name__ == '__main__':
     app.run(debug=True)
